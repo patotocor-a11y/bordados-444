@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Bordados 444 – Bordados personalizados en gorras, playeras, uniformes, chamarras y más. San Luis Potosí. Envíos a toda México.">
+<title>Bordados 444 – Bordados Personalizados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#c9a84c;--gold-light:#e8c87a;--gold-dim:rgba(201,168,76,0.12);--gold-border:rgba(201,168,76,0.25);
+  --black:#080808;--black-soft:#101010;--black-card:#141414;--black-hover:#1a1a1a;
+  --text:#f0ebe0;--muted:#7a7060;--muted2:#333028;
+  --font-display:'Cormorant Garamond',Georgia,serif;
+  --font-body:'DM Sans',sans-serif;
+  --radius:10px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+
+/* ── NAV ── */
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 24px;position:sticky;top:0;z-index:99;
+  border-bottom:0.5px solid var(--gold-border);
+  background:rgba(8,8,8,0.96);backdrop-filter:blur(12px);
+}
+.logo{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:1px;color:var(--gold);}
+.logo span{color:var(--text);font-weight:400;}
+.nav-links{display:flex;gap:24px;font-size:13px;color:var(--muted);}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{
+  background:var(--gold);color:var(--black);border:none;
+  padding:9px 18px;border-radius:6px;font-size:13px;font-weight:500;
+  cursor:pointer;font-family:var(--font-body);transition:opacity .2s;
+}
+.nav-cta:hover{opacity:.88;}
+@media(max-width:600px){.nav-links{display:none;}}
+
+/* ── HERO ── */
+.hero{
+  padding:72px 24px 60px;text-align:center;
+  background:radial-gradient(ellipse at 50% 0%, #1c1500 0%, var(--black) 65%);
+  border-bottom:0.5px solid var(--gold-border);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  border:0.5px solid var(--gold-border);color:var(--gold);
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  padding:5px 16px;border-radius:20px;margin-bottom:28px;
+}
+.hero h1{
+  font-family:var(--font-display);font-size:clamp(36px,8vw,56px);
+  font-weight:500;line-height:1.15;margin-bottom:18px;
+}
+.hero h1 em{color:var(--gold);font-style:italic;}
+.hero p{font-size:15px;color:var(--muted);line-height:1.75;max-width:480px;margin:0 auto 36px;}
+.hero-btns{display:flex;flex-direction:column;gap:12px;max-width:320px;margin:0 auto;}
+.btn-gold{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--gold);color:var(--black);border-radius:8px;
+  padding:15px 20px;font-size:15px;font-weight:500;transition:opacity .2s;
+}
+.btn-gold:hover{opacity:.88;}
+.btn-outline{
+  display:block;text-align:center;
+  border:0.5px solid var(--gold-border);color:var(--text);
+  border-radius:8px;padding:14px 20px;font-size:15px;
+  transition:border-color .2s;
+}
+.btn-outline:hover{border-color:var(--gold);}
+
+/* ── STATS ── */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:0.5px solid var(--gold-border);}
+.stat{padding:28px 12px;text-align:center;border-right:0.5px solid var(--gold-border);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--gold);}
+.stat-label{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.5px;}
+
+/* ── SECTIONS ── */
+.section{padding:56px 24px;border-bottom:0.5px solid var(--gold-border);}
+.section-inner{max-width:640px;margin:0 auto;}
+.sec-tag{font-size:11px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
+.sec-title{font-family:var(--font-display);font-size:clamp(26px,5vw,36px);font-weight:500;margin-bottom:10px;}
+.sec-sub{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:32px;}
+
+/* ── SERVICIOS ── */
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+@media(max-width:400px){.services-grid{grid-template-columns:1fr;}}
+.svc{
+  background:var(--black-card);border:0.5px solid var(--gold-border);
+  border-radius:var(--radius);padding:20px 16px;
+  display:flex;align-items:flex-start;gap:14px;
+  transition:border-color .2s;
+}
+.svc:hover{border-color:var(--gold);}
+.svc-icon{
+  width:38px;height:38px;min-width:38px;border-radius:8px;
+  background:var(--gold-dim);display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:19px;
+}
+.svc-name{font-size:14px;font-weight:500;margin-bottom:3px;}
+.svc-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+
+/* ── GALERÍA ── */
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px;}
+.gal-item{
+  background:var(--black-card);border:0.5px solid var(--gold-border);
+  border-radius:var(--radius);aspect-ratio:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;color:var(--muted);font-size:11px;letter-spacing:.5px;text-transform:uppercase;
+}
+.gal-item i{font-size:28px;color:var(--muted2);}
+.gal-note{
+  background:var(--black-card);border:0.5px solid var(--gold-border);
+  border-radius:var(--radius);padding:14px 16px;
+  font-size:13px;color:var(--muted);text-align:center;
+}
+.gal-note a{color:var(--gold);}
+
+/* ── PROCESO ── */
+.steps{display:flex;flex-direction:column;gap:0;}
+.step{display:flex;gap:18px;padding-bottom:32px;position:relative;}
+.step:not(:last-child)::before{
+  content:'';position:absolute;left:16px;top:38px;
+  width:0.5px;height:calc(100% - 14px);background:var(--gold-border);
+}
+.step-num{
+  width:34px;height:34px;min-width:34px;border-radius:50%;
+  background:var(--gold-dim);border:0.5px solid var(--gold-border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:500;color:var(--gold);flex-shrink:0;
+}
+.step-title{font-size:15px;font-weight:500;margin-bottom:4px;}
+.step-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+
+/* ── TESTIMONIOS ── */
+.testimonios{display:flex;flex-direction:column;gap:12px;}
+.testi{
+  background:var(--black-card);border:0.5px solid var(--gold-border);
+  border-radius:var(--radius);padding:20px 18px;
+}
+.testi-stars{color:var(--gold);font-size:13px;margin-bottom:10px;}
+.testi-text{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:12px;font-style:italic;}
+.testi-author{font-size:12px;color:var(--gold);font-weight:500;}
+
+/* ── FAQ ── */
+.faq-item{border-bottom:0.5px solid var(--gold-border);padding:18px 0;cursor:pointer;}
+.faq-q{font-size:15px;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.75;margin-top:12px;display:none;}
+.faq-item.open .faq-a{display:block;}
+.faq-arrow{color:var(--gold);transition:transform .2s;flex-shrink:0;}
+.faq-item.open .faq-arrow{transform:rotate(180deg);}
+
+/* ── COTIZACIÓN ── */
+.cot-box{background:var(--black-card);border:0.5px solid var(--gold-border);border-radius:var(--radius);padding:28px 20px;}
+
+/* Progress bar */
+.prog-bar{display:flex;align-items:center;gap:0;margin-bottom:32px;}
+.prog-step{
+  width:30px;height:30px;border-radius:50%;border:0.5px solid var(--gold-border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:500;color:var(--muted);background:var(--black-soft);
+  transition:all .25s;flex-shrink:0;
+}
+.prog-step.active{border-color:var(--gold);color:var(--gold);background:var(--gold-dim);}
+.prog-step.done{background:var(--gold);color:var(--black);border-color:var(--gold);}
+.prog-line{flex:1;height:0.5px;background:var(--muted2);}
+.prog-line.done{background:var(--gold);}
+
+/* Form steps */
+.step-screen{display:none;}
+.step-screen.active{display:block;}
+.step-label{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.step-title-f{font-family:var(--font-display);font-size:24px;font-weight:500;margin-bottom:6px;}
+.step-sub-f{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.65;}
+
+.opts-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:22px;}
+.opt{
+  background:var(--black-soft);border:0.5px solid var(--gold-border);border-radius:var(--radius);
+  padding:16px 12px;cursor:pointer;transition:all .2s;
+  display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;
+}
+.opt:hover{background:var(--black-hover);border-color:var(--gold);}
+.opt.selected{background:var(--gold-dim);border-color:var(--gold);}
+.opt i{font-size:22px;color:var(--gold);}
+.opt-label{font-size:13px;color:var(--text);font-weight:500;}
+.opt-sub{font-size:11px;color:var(--muted);}
+
+.field-label{font-size:12px;color:var(--muted);letter-spacing:.5px;margin-bottom:8px;display:block;}
+.field-input{
+  width:100%;background:var(--black);border:0.5px solid var(--gold-border);
+  border-radius:8px;padding:12px 14px;color:var(--text);font-size:14px;
+  font-family:var(--font-body);margin-bottom:14px;
+}
+.field-input:focus{outline:none;border-color:var(--gold);}
+textarea.field-input{resize:none;}
+.field-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+
+.counter-row{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.counter-btn{
+  width:42px;height:42px;border-radius:8px;border:0.5px solid var(--gold-border);
+  background:var(--black-soft);color:var(--gold);font-size:20px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+.counter-btn:hover{background:var(--gold-dim);}
+.counter-val{font-family:var(--font-display);font-size:32px;font-weight:600;color:var(--text);min-width:50px;text-align:center;}
+.counter-unit{font-size:13px;color:var(--muted);}
+
+.color-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.chip{
+  padding:7px 15px;border-radius:20px;border:0.5px solid var(--gold-border);
+  font-size:13px;color:var(--text);cursor:pointer;background:var(--black-soft);transition:all .2s;
+}
+.chip:hover{border-color:var(--gold);}
+.chip.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);}
+
+.upload-box{
+  border:0.5px dashed var(--gold-border);border-radius:var(--radius);
+  padding:32px 16px;text-align:center;cursor:pointer;background:var(--black-soft);
+  margin-bottom:14px;transition:all .2s;
+}
+.upload-box:hover{border-color:var(--gold);background:var(--gold-dim);}
+.upload-box i{font-size:32px;color:var(--gold);margin-bottom:10px;display:block;}
+.upload-box p{font-size:13px;color:var(--muted);line-height:1.6;}
+.up-name{font-size:13px;color:var(--gold);margin-top:8px;}
+
+.resumen{display:flex;flex-direction:column;gap:8px;margin-bottom:22px;}
+.res-row{
+  background:var(--black-soft);border:0.5px solid var(--gold-border);border-radius:8px;
+  padding:12px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+}
+.res-key{font-size:12px;color:var(--muted);}
+.res-val{font-size:13px;color:var(--text);text-align:right;max-width:60%;}
+
+.nav-btns{display:flex;gap:10px;margin-top:6px;}
+.btn-back{
+  flex:1;background:transparent;border:0.5px solid var(--gold-border);
+  border-radius:8px;padding:13px;color:var(--muted);font-size:14px;cursor:pointer;
+  font-family:var(--font-body);transition:border-color .2s;
+}
+.btn-back:hover{border-color:var(--gold);}
+.btn-next{
+  flex:2;background:var(--gold);border:none;border-radius:8px;
+  padding:14px;color:var(--black);font-size:14px;font-weight:500;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-body);transition:opacity .2s;
+}
+.btn-next:hover{opacity:.88;}
+.btn-next:disabled{opacity:.35;cursor:not-allowed;}
+
+/* ── CONTACTO ── */
+.contact-methods{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.contact-item{
+  background:var(--black-card);border:0.5px solid var(--gold-border);border-radius:var(--radius);
+  padding:16px 18px;display:flex;align-items:center;gap:16px;transition:border-color .2s;
+}
+.contact-item:hover{border-color:var(--gold);}
+.contact-icon{color:var(--gold);font-size:22px;}
+.contact-label{font-size:11px;color:var(--muted);}
+.contact-value{font-size:14px;color:var(--text);font-weight:500;}
+.social-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.social-btn{
+  background:var(--black-card);border:0.5px solid var(--gold-border);border-radius:var(--radius);
+  padding:16px 12px;display:flex;align-items:center;justify-content:center;gap:10px;
+  color:var(--text);font-size:14px;cursor:pointer;transition:border-color .2s;
+}
+.social-btn:hover{border-color:var(--gold);}
+.social-btn i{color:var(--gold);font-size:20px;}
+
+/* ── FOOTER ── */
+footer{padding:36px 24px;text-align:center;border-top:0.5px solid var(--gold-border);}
+.footer-logo{font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--gold);margin-bottom:8px;}
+.footer-text{font-size:13px;color:var(--muted);}
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float{
+  position:fixed;bottom:24px;right:20px;z-index:99;
+  background:var(--gold);color:var(--black);border-radius:50%;
+  width:56px;height:56px;display:flex;align-items:center;justify-content:center;
+  font-size:26px;box-shadow:0 4px 20px rgba(201,168,76,0.4);
+  transition:transform .2s;
+}
+.wa-float:hover{transform:scale(1.08);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Bordados <span>444</span></div>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#cotizacion">Cotizar</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('cotizacion').scrollIntoView({behavior:'smooth'})">Cotizar ahora</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><i class="ti ti-needle-thread"></i> Bordados personalizados · SLP</div>
+  <h1>Tu diseño,<br><em>bordado con precisión</em></h1>
+  <p>Gorras, playeras, uniformes, chamarras y más. Pedidos individuales y por volumen. Envíos a toda la república.</p>
+  <div class="hero-btns">
+    <a href="https://wa.me/524447293887?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20un%20bordado" class="btn-gold">
+      <i class="ti ti-brand-whatsapp"></i> Pedir cotización por WhatsApp
+    </a>
+    <a href="#servicios" class="btn-outline">Ver servicios</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Personalizado</div></div>
+  <div class="stat"><div class="stat-num">+5 años</div><div class="stat-label">Experiencia</div></div>
+  <div class="stat"><div class="stat-num">Express</div><div class="stat-label">Entrega rápida</div></div>
+</div>
+
+<!-- QUIÉNES SOMOS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="sec-tag">Quiénes somos</div>
+    <div class="sec-title">Un negocio que se preocupa por tu pedido</div>
+    <div class="sec-sub">Bordados 444 nació con la misión de ofrecer bordados de calidad con atención personalizada. Cada pedido es importante, sin importar si son una o cien piezas. Detrás de cada bordado hay una persona comprometida con que el resultado final sea exactamente lo que imaginaste.</div>
+    <div class="svc" style="border-color:rgba(201,168,76,0.4);">
+      <div class="svc-icon"><i class="ti ti-heart"></i></div>
+      <div>
+        <div class="svc-name">Atención personalizada</div>
+        <div class="svc-desc">Te acompañamos desde el diseño hasta la entrega. Revisamos que tu bordado quede exactamente como lo imaginaste.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="section" id="servicios">
+  <div class="section-inner">
+    <div class="sec-tag">Servicios</div>
+    <div class="sec-title">¿Qué podemos bordar?</div>
+    <div class="sec-sub">Trabajamos con prácticamente cualquier tipo de prenda o artículo textil. Pedidos individuales y por volumen.</div>
+    <div class="services-grid">
+      <div class="svc"><div class="svc-icon"><i class="ti ti-shirt"></i></div><div><div class="svc-name">Playeras y sudaderas</div><div class="svc-desc">Diseños, nombres y logotipos.</div></div></div>
+      <div class="svc"><div class="svc-icon"><i class="ti ti-user-check"></i></div><div><div class="svc-name">Uniformes corporativos</div><div class="svc-desc">Imagen profesional para tu empresa.</div></div></div>
+      <div class="svc"><div class="svc-icon"><i class="ti ti-tag"></i></div><div><div class="svc-name">Gorras</div><div class="svc-desc">Logotipos e iniciales en todo tipo de gorras.</div></div></div>
+      <div class="svc"><div class="svc-icon"><i class="ti ti-backpack"></i></div><div><div class="svc-name">Chamarras y mochilas</div><div class="svc-desc">Bordados duraderos en materiales gruesos.</div></div></div>
+      <div class="svc"><div class="svc-icon"><i class="ti ti-calendar-event"></i></div><div><div class="svc-name">Eventos especiales</div><div class="svc-desc">Graduaciones, equipos, recuerdos.</div></div></div>
+      <div class="svc"><div class="svc-icon"><i class="ti ti-building-store"></i></div><div><div class="svc-name">Pedidos por volumen</div><div class="svc-desc">Precios especiales para pedidos grandes.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="section">
+  <div class="section-inner">
+    <div class="sec-tag">Galería</div>
+    <div class="sec-title">Trabajos realizados</div>
+    <div class="sec-sub">Aquí irán las fotos de tus bordados. Mientras tanto, visita nuestro Instagram.</div>
+    <div class="gallery-grid">
+      <div class="gal-item"><i class="ti ti-camera"></i><span>Tu foto aquí</span></div>
+      <div class="gal-item"><i class="ti ti-camera"></i><span>Tu foto aquí</span></div>
+      <div class="gal-item"><i class="ti ti-camera"></i><span>Tu foto aquí</span></div>
+      <div class="gal-item"><i class="ti ti-camera"></i><span>Tu foto aquí</span></div>
+    </div>
+    <div class="gal-note">
+      <i class="ti ti-brand-instagram" style="color:var(--gold);vertical-align:-2px;margin-right:6px;"></i>
+      Ve más trabajos en <a href="https://www.instagram.com/bordados.444/" target="_blank">@bordados.444</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="section" id="proceso">
+  <div class="section-inner">
+    <div class="sec-tag">Proceso</div>
+    <div class="sec-title">¿Cómo funciona?</div>
+    <div class="sec-sub">Simple, rápido y sin complicaciones.</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div><div class="step-title">Comparte tu diseño</div><div class="step-desc">Mándanos tu logo, imagen o idea por WhatsApp. Si no tienes diseño, te ayudamos.</div></div></div>
+      <div class="step"><div class="step-num">2</div><div><div class="step-title">Recibe tu cotización</div><div class="step-desc">Analizamos el diseño y te enviamos el precio según tamaño, complejidad y cantidad.</div></div></div>
+      <div class="step"><div class="step-num">3</div><div><div class="step-title">Aprueba y producimos</div><div class="step-desc">Confirmas el pedido y comenzamos. Te avisamos cuando esté listo.</div></div></div>
+      <div class="step"><div class="step-num">4</div><div><div class="step-title">Entrega o envío</div><div class="step-desc">Entregas locales en SLP o envíos a cualquier parte de México.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="sec-tag">Testimonios</div>
+    <div class="sec-title">Lo que dicen nuestros clientes</div>
+    <div class="testimonios">
+      <div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"Pedí uniformes para mi equipo y quedaron perfectos. Entrega rápida y muy buena atención."</div><div class="testi-author">— Cliente empresa local</div></div>
+      <div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"Mandé un diseño complicado y lo lograron exactamente como lo quería. 100% recomendados."</div><div class="testi-author">— Pedido de gorras personalizadas</div></div>
+      <div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"Trato muy profesional y el bordado de excelente calidad. Ya les hice segundo pedido."</div><div class="testi-author">— Cliente recurrente</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="sec-tag">Preguntas frecuentes</div>
+    <div class="sec-title">Resolvemos tus dudas</div>
+    <div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">¿Puedo hacer un pedido de una sola pieza? <i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">Sí, trabajamos pedidos individuales y por volumen. El precio varía según la cantidad.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">¿Cuánto tarda mi pedido? <i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">Depende de la cantidad y complejidad. Manejamos tiempos de entrega rápidos y también entregas urgentes cuando es posible.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">¿Hacen envíos fuera de San Luis Potosí? <i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">Sí, enviamos a toda la república mexicana. El costo de envío depende del destino y la paquetería.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">¿Puedo traer mi propia prenda para bordar? <i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">Claro, podemos bordar en prendas tuyas. Solo verifica que sean de materiales aptos para bordado.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">¿Cómo me cobran? <i class="ti ti-chevron-down faq-arrow"></i></div><div class="faq-a">Cotizamos sin costo y sin compromiso. El precio depende del diseño, tamaño y cantidad. Te enviamos el desglose antes de confirmar.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COTIZACIÓN -->
+<section class="section" id="cotizacion">
+  <div class="section-inner">
+    <div class="sec-tag">Cotización</div>
+    <div class="sec-title">Solicita tu cotización</div>
+    <div class="sec-sub">Sin costo, sin compromiso. Completa los datos y te respondemos por WhatsApp.</div>
+    <div class="cot-box">
+
+      <div class="prog-bar" id="progBar">
+        <div class="prog-step active" id="ps1">1</div>
+        <div class="prog-line" id="pl1"></div>
+        <div class="prog-step" id="ps2">2</div>
+        <div class="prog-line" id="pl2"></div>
+        <div class="prog-step" id="ps3">3</div>
+        <div class="prog-line" id="pl3"></div>
+        <div class="prog-step" id="ps4">4</div>
+        <div class="prog-line" id="pl4"></div>
+        <div class="prog-step" id="ps5">5</div>
+        <div class="prog-line" id="pl5"></div>
+        <div class="prog-step" id="ps6">6</div>
+        <div class="prog-line" id="pl6"></div>
+        <div class="prog-step" id="ps7">7</div>
+      </div>
+
+      <!-- PASO 1 -->
+      <div class="step-screen active" id="s1">
+        <div class="step-label">Paso 1 de 7</div>
+        <div class="step-title-f">¿Qué tipo de prenda?</div>
+        <div class="step-sub-f">Selecciona la prenda en la que quieres el bordado.</div>
+        <div class="opts-grid">
+          <div class="opt" onclick="selectOpt(this,'prenda','Gorra')"><i class="ti ti-tag"></i><span class="opt-label">Gorra</span></div>
+          <div class="opt" onclick="selectOpt(this,'prenda','Playera')"><i class="ti ti-shirt"></i><span class="opt-label">Playera</span></div>
+          <div class="opt" onclick="selectOpt(this,'prenda','Sudadera')"><i class="ti ti-shirt"></i><span class="opt-label">Sudadera</span></div>
+          <div class="opt" onclick="selectOpt(this,'prenda','Chamarra')"><i class="ti ti-wind"></i><span class="opt-label">Chamarra</span></div>
+          <div class="opt" onclick="selectOpt(this,'prenda','Mochila')"><i class="ti ti-backpack"></i><span class="opt-label">Mochila</span></div>
+          <div class="opt" onclick="selectOpt(this,'prenda','Uniforme')"><i class="ti ti-user-check"></i><span class="opt-label">Uniforme</span></div>
+          <div class="opt" onclick="selectOpt(this,'prenda','Toalla')"><i class="ti ti-fold"></i><span class="opt-label">Toalla</span></div>
+          <div class="opt" onclick="selectOpt(this,'prenda','Otro')"><i class="ti ti-dots"></i><span class="opt-label">Otro</span></div>
+        </div>
+        <input class="field-input" id="prendaOtro" placeholder="Especifica la prenda..." style="display:none;margin-top:-6px;">
+        <div class="nav-btns"><button class="btn-next" id="n1" onclick="goTo(2)" disabled><i class="ti ti-arrow-right"></i> Siguiente</button></div>
+      </div>
+
+      <!-- PASO 2 -->
+      <div class="step-screen" id="s2">
+        <div class="step-label">Paso 2 de 7</div>
+        <div class="step-title-f">¿Cuántas prendas?</div>
+        <div class="step-sub-f">Más piezas = mejor precio por unidad.</div>
+        <div class="counter-row">
+          <button class="counter-btn" onclick="changeCount(-1)"><i class="ti ti-minus"></i></button>
+          <div class="counter-val" id="countVal">1</div>
+          <button class="counter-btn" onclick="changeCount(1)"><i class="ti ti-plus"></i></button>
+          <span class="counter-unit">prendas</span>
+        </div>
+        <div class="opts-grid" style="margin-bottom:20px;">
+          <div class="opt" onclick="setCount(1,this)"><span class="opt-label">1 pieza</span><span class="opt-sub">Individual</span></div>
+          <div class="opt" onclick="setCount(10,this)"><span class="opt-label">10 piezas</span><span class="opt-sub">Pequeño</span></div>
+          <div class="opt" onclick="setCount(25,this)"><span class="opt-label">25 piezas</span><span class="opt-sub">Mediano</span></div>
+          <div class="opt" onclick="setCount(50,this)"><span class="opt-label">50+ piezas</span><span class="opt-sub">Grande</span></div>
+        </div>
+        <div class="nav-btns">
+          <button class="btn-back" onclick="goTo(1)"><i class="ti ti-arrow-left"></i></button>
+          <button class="btn-next" onclick="goTo(3)"><i class="ti ti-arrow-right"></i> Siguiente</button>
+        </div>
+      </div>
+
+      <!-- PASO 3 -->
+      <div class="step-screen" id="s3">
+        <div class="step-label">Paso 3 de 7</div>
+        <div class="step-title-f">¿Dónde va el bordado?</div>
+        <div class="step-sub-f">Selecciona la posición. Puedes elegir más de una.</div>
+        <div class="opts-grid">
+          <div class="opt" onclick="toggleOpt(this,'Pecho izquierdo')"><i class="ti ti-map-pin"></i><span class="opt-label">Pecho izquierdo</span></div>
+          <div class="opt" onclick="toggleOpt(this,'Pecho derecho')"><i class="ti ti-map-pin"></i><span class="opt-label">Pecho derecho</span></div>
+          <div class="opt" onclick="toggleOpt(this,'Espalda completa')"><i class="ti ti-layout-align-bottom"></i><span class="opt-label">Espalda completa</span></div>
+          <div class="opt" onclick="toggleOpt(this,'Manga')"><i class="ti ti-hand-stop"></i><span class="opt-label">Manga</span></div>
+          <div class="opt" onclick="toggleOpt(this,'Frente gorra')"><i class="ti ti-tag"></i><span class="opt-label">Frente gorra</span></div>
+          <div class="opt" onclick="toggleOpt(this,'Lateral gorra')"><i class="ti ti-tag"></i><span class="opt-label">Lateral gorra</span></div>
+          <div class="opt" onclick="toggleOpt(this,'Cuello / nuca')"><i class="ti ti-arrow-up"></i><span class="opt-label">Cuello / nuca</span></div>
+          <div class="opt" onclick="toggleOpt(this,'Otro')"><i class="ti ti-dots"></i><span class="opt-label">Otro</span></div>
+        </div>
+        <div class="nav-btns">
+          <button class="btn-back" onclick="goTo(2)"><i class="ti ti-arrow-left"></i></button>
+          <button class="btn-next" id="n3" onclick="goTo(4)" disabled><i class="ti ti-arrow-right"></i> Siguiente</button>
+        </div>
+      </div>
+
+      <!-- PASO 4 -->
+      <div class="step-screen" id="s4">
+        <div class="step-label">Paso 4 de 7</div>
+        <div class="step-title-f">Dimensiones del bordado</div>
+        <div class="step-sub-f">Tamaño aproximado. Si no lo sabes exacto, da un estimado.</div>
+        <div class="opts-grid" style="margin-bottom:16px;">
+          <div class="opt" onclick="selectOpt(this,'dim','Pequeño (hasta 5cm)')"><span class="opt-label">Pequeño</span><span class="opt-sub">Hasta 5 cm</span></div>
+          <div class="opt" onclick="selectOpt(this,'dim','Mediano (5–10cm)')"><span class="opt-label">Mediano</span><span class="opt-sub">5 – 10 cm</span></div>
+          <div class="opt" onclick="selectOpt(this,'dim','Grande (10–20cm)')"><span class="opt-label">Grande</span><span class="opt-sub">10 – 20 cm</span></div>
+          <div class="opt" onclick="selectOpt(this,'dim','Extra grande (+20cm)')"><span class="opt-label">Extra grande</span><span class="opt-sub">Más de 20 cm</span></div>
+        </div>
+        <label class="field-label">O escribe las medidas exactas (opcional)</label>
+        <div class="field-row">
+          <input class="field-input" id="dimW" placeholder="Ancho (cm)" type="number" min="1">
+          <input class="field-input" id="dimH" placeholder="Alto (cm)" type="number" min="1">
+        </div>
+        <div class="nav-btns">
+          <button class="btn-back" onclick="goTo(3)"><i class="ti ti-arrow-left"></i></button>
+          <button class="btn-next" id="n4" onclick="goTo(5)" disabled><i class="ti ti-arrow-right"></i> Siguiente</button>
+        </div>
+      </div>
+
+      <!-- PASO 5 -->
+      <div class="step-screen" id="s5">
+        <div class="step-label">Paso 5 de 7</div>
+        <div class="step-title-f">Colores del bordado</div>
+        <div class="step-sub-f">¿Qué colores lleva el diseño? Selecciona todos los que apliquen.</div>
+        <div class="color-chips">
+          <div class="chip" onclick="toggleChip(this,'Negro')">Negro</div>
+          <div class="chip" onclick="toggleChip(this,'Blanco')">Blanco</div>
+          <div class="chip" onclick="toggleChip(this,'Rojo')">Rojo</div>
+          <div class="chip" onclick="toggleChip(this,'Azul marino')">Azul marino</div>
+          <div class="chip" onclick="toggleChip(this,'Azul cielo')">Azul cielo</div>
+          <div class="chip" onclick="toggleChip(this,'Verde')">Verde</div>
+          <div class="chip" onclick="toggleChip(this,'Amarillo')">Amarillo</div>
+          <div class="chip" onclick="toggleChip(this,'Naranja')">Naranja</div>
+          <div class="chip" onclick="toggleChip(this,'Rosa')">Rosa</div>
+          <div class="chip" onclick="toggleChip(this,'Dorado')">Dorado</div>
+          <div class="chip" onclick="toggleChip(this,'Gris')">Gris</div>
+          <div class="chip" onclick="toggleChip(this,'Morado')">Morado</div>
+          <div class="chip" onclick="toggleChip(this,'No sé aún')">No sé aún</div>
+        </div>
+        <label class="field-label">Colores adicionales o código específico (opcional)</label>
+        <input class="field-input" id="colExtra" placeholder="Ej. azul rey, pantone, etc.">
+        <div class="nav-btns">
+          <button class="btn-back" onclick="goTo(4)"><i class="ti ti-arrow-left"></i></button>
+          <button class="btn-next" id="n5" onclick="goTo(6)" disabled><i class="ti ti-arrow-right"></i> Siguiente</button>
+        </div>
+      </div>
+
+      <!-- PASO 6 -->
+      <div class="step-screen" id="s6">
+        <div class="step-label">Paso 6 de 7</div>
+        <div class="step-title-f">Tu diseño o logo</div>
+        <div class="step-sub-f">Sube una imagen o describe lo que quieres bordar.</div>
+        <div class="upload-box" id="uploadBox" onclick="document.getElementById('fileIn').click()">
+          <i class="ti ti-upload"></i>
+          <p>Toca para subir una imagen<br><span style="font-size:11px;color:#333028;">JPG, PNG, PDF · Máx 10 MB</span></p>
+          <div class="up-name" id="upName"></div>
+        </div>
+        <input type="file" id="fileIn" accept="image/*,.pdf,.ai,.eps" style="display:none" onchange="fileChosen(this)">
+        <label class="field-label">¿No tienes archivo? Describe tu diseño</label>
+        <textarea class="field-input" id="designDesc" rows="3" placeholder="Ej. Logo de mi empresa con nombre en letras cursivas..."></textarea>
+        <div class="nav-btns">
+          <button class="btn-back" onclick="goTo(5)"><i class="ti ti-arrow-left"></i></button>
+          <button class="btn-next" id="n6" onclick="goTo(7)" disabled><i class="ti ti-arrow-right"></i> Siguiente</button>
+        </div>
+      </div>
+
+      <!-- PASO 7 -->
+      <div class="step-screen" id="s7">
+        <div class="step-label">Paso 7 de 7</div>
+        <div class="step-title-f">Casi listo</div>
+        <div class="step-sub-f">Revisa tu pedido y déjanos tus datos.</div>
+        <div class="resumen" id="resumen"></div>
+        <label class="field-label">Tu nombre</label>
+        <input class="field-input" id="cNombre" placeholder="Ej. Carlos Ramírez">
+        <label class="field-label">WhatsApp</label>
+        <input class="field-input" id="cTel" placeholder="+52 444 000 0000" type="tel">
+        <div class="nav-btns">
+          <button class="btn-back" onclick="goTo(6)"><i class="ti ti-arrow-left"></i></button>
+          <button class="btn-next" onclick="enviar()"><i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section" id="contacto">
+  <div class="section-inner">
+    <div class="sec-tag">Contacto</div>
+    <div class="sec-title">Estamos para ayudarte</div>
+    <div class="contact-methods">
+      <a href="https://wa.me/524447293887" class="contact-item">
+        <i class="ti ti-brand-whatsapp contact-icon"></i>
+        <div><div class="contact-label">WhatsApp</div><div class="contact-value">+52 444 729 3887</div></div>
+      </a>
+      <a href="https://www.instagram.com/bordados.444/" target="_blank" class="contact-item">
+        <i class="ti ti-brand-instagram contact-icon"></i>
+        <div><div class="contact-label">Instagram</div><div class="contact-value">@bordados.444</div></div>
+      </a>
+      <a href="https://www.facebook.com/diego.torres.959060/" target="_blank" class="contact-item">
+        <i class="ti ti-brand-facebook contact-icon"></i>
+        <div><div class="contact-label">Facebook</div><div class="contact-value">Bordados 444</div></div>
+      </a>
+    </div>
+    <div class="social-grid">
+      <a href="https://wa.me/524447293887?text=Hola%2C%20quiero%20cotizar%20un%20bordado" class="social-btn">
+        <i class="ti ti-brand-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://www.instagram.com/bordados.444/" target="_blank" class="social-btn">
+        <i class="ti ti-brand-instagram"></i> Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Bordados 444</div>
+  <div class="footer-text">San Luis Potosí, México · Envíos a toda la república</div>
+  <div style="margin-top:8px;font-size:12px;color:#333028;">© 2025 Bordados 444. Todos los derechos reservados.</div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/524447293887?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20un%20bordado" class="wa-float" title="Cotizar por WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</a>
+
+<script>
+const formData = { prenda:'', cantidad:1, posiciones:[], dim:'', colores:[], diseño:'', archivo:'' };
+let countNum = 1;
+
+function goTo(n) {
+  document.querySelectorAll('.step-screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  for(let i=1;i<=7;i++){
+    const ps = document.getElementById('ps'+i);
+    if(i<n){ ps.className='prog-step done'; ps.innerHTML='<i class="ti ti-check" style="font-size:12px"></i>'; }
+    else if(i===n){ ps.className='prog-step active'; ps.textContent=i; }
+    else{ ps.className='prog-step'; ps.textContent=i; }
+    if(i<7) document.getElementById('pl'+i).className='prog-line'+(i<n?' done':'');
+  }
+  if(n===7) buildResumen();
+  document.getElementById('cotizacion').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function selectOpt(el, key, val) {
+  const screen = el.closest('.step-screen');
+  screen.querySelectorAll('.opt').forEach(o => {
+    if(o.getAttribute('onclick') && o.getAttribute('onclick').includes("'"+key+"'")) o.classList.remove('selected');
+  });
+  el.classList.add('selected');
+  formData[key] = val;
+  if(key==='prenda'){
+    document.getElementById('prendaOtro').style.display = val==='Otro'?'block':'none';
+    document.getElementById('n1').disabled = false;
+  }
+  if(key==='dim') document.getElementById('n4').disabled = false;
+}
+
+function toggleOpt(el, val) {
+  el.classList.toggle('selected');
+  const idx = formData.posiciones.indexOf(val);
+  if(idx>-1) formData.posiciones.splice(idx,1); else formData.posiciones.push(val);
+  document.getElementById('n3').disabled = formData.posiciones.length===0;
+}
+
+function toggleChip(el, val) {
+  el.classList.toggle('selected');
+  const idx = formData.colores.indexOf(val);
+  if(idx>-1) formData.colores.splice(idx,1); else formData.colores.push(val);
+  document.getElementById('n5').disabled = formData.colores.length===0;
+}
+
+function changeCount(d){
+  countNum = Math.max(1, countNum+d);
+  document.getElementById('countVal').textContent = countNum;
+  formData.cantidad = countNum;
+  document.querySelectorAll('#s2 .opt').forEach(o=>o.classList.remove('selected'));
+}
+
+function setCount(n, el){
+  countNum = n; formData.cantidad = n;
+  document.getElementById('countVal').textContent = n;
+  document.querySelectorAll('#s2 .opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function fileChosen(inp){
+  if(inp.files && inp.files[0]){
+    formData.archivo = inp.files[0].name;
+    document.getElementById('upName').textContent = '✓ '+inp.files[0].name;
+    document.getElementById('uploadBox').style.borderColor='var(--gold)';
+    document.getElementById('uploadBox').style.background='var(--gold-dim)';
+    document.getElementById('n6').disabled = false;
+  }
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('designDesc').addEventListener('input',function(){
+    formData.diseño = this.value;
+    document.getElementById('n6').disabled = this.value.trim().length<5 && !formData.archivo;
+  });
+});
+
+function buildResumen(){
+  const dimW = document.getElementById('dimW').value;
+  const dimH = document.getElementById('dimH').value;
+  const dims = dimW && dimH ? dimW+'cm × '+dimH+'cm' : (formData.dim||'—');
+  const rows=[
+    ['Prenda', formData.prenda||'—'],
+    ['Cantidad', formData.cantidad+' pieza(s)'],
+    ['Posición', formData.posiciones.join(', ')||'—'],
+    ['Dimensiones', dims],
+    ['Colores', formData.colores.join(', ')||'—'],
+    ['Diseño', formData.archivo||(formData.diseño?'Descripción escrita':'—')],
+  ];
+  document.getElementById('resumen').innerHTML = rows.map(r=>
+    `<div class="res-row"><span class="res-key">${r[0]}</span><span class="res-val">${r[1]}</span></div>`
+  ).join('');
+}
+
+function enviar(){
+  const nombre = document.getElementById('cNombre').value.trim();
+  const tel = document.getElementById('cTel').value.trim();
+  const dimW = document.getElementById('dimW').value;
+  const dimH = document.getElementById('dimH').value;
+  const dims = dimW && dimH ? dimW+'cm × '+dimH+'cm' : (formData.dim||'—');
+  let msg = 'Hola! Quiero solicitar una cotización de bordado:%0A%0A';
+  msg += '🧵 *Cotización Bordados 444*%0A';
+  msg += '▸ Prenda: '+(formData.prenda||'—')+'%0A';
+  msg += '▸ Cantidad: '+formData.cantidad+' pieza(s)%0A';
+  msg += '▸ Posición: '+(formData.posiciones.join(', ')||'—')+'%0A';
+  msg += '▸ Dimensiones: '+dims+'%0A';
+  msg += '▸ Colores: '+(formData.colores.join(', ')||'—')+'%0A';
+  if(formData.diseño) msg += '▸ Diseño: '+encodeURIComponent(formData.diseño)+'%0A';
+  if(formData.archivo) msg += '▸ Archivo: '+encodeURIComponent(formData.archivo)+'%0A';
+  if(nombre) msg += '%0ANombre: '+encodeURIComponent(nombre);
+  if(tel) msg += '%0ATeléfono: '+encodeURIComponent(tel);
+  window.open('https://wa.me/524447293887?text='+msg,'_blank');
+}
+</script>
+</body>
+</html>
