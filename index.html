@@ -116,6 +116,8 @@ nav{
   gap:8px;color:var(--muted);font-size:11px;letter-spacing:.5px;text-transform:uppercase;
 }
 .gal-item i{font-size:28px;color:var(--muted2);}
+.gal-item{padding:0;overflow:hidden;}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;}
 .gal-note{
   background:var(--black-card);border:0.5px solid var(--gold-border);
   border-radius:var(--radius);padding:14px 16px;
@@ -361,12 +363,22 @@ footer{padding:36px 24px;text-align:center;border-top:0.5px solid var(--gold-bor
   <div class="section-inner">
     <div class="sec-tag">Galería</div>
     <div class="sec-title">Trabajos realizados</div>
-    <div class="sec-sub">Aquí irán las fotos de tus bordados. Mientras tanto, visita nuestro Instagram.</div>
+    <div class="sec-sub">Algunos de nuestros trabajos. Ve más en nuestro Instagram.</div>
     <div class="gallery-grid">
-      <div class="gal-item"><i class="ti ti-camera"></i><span>Tu foto aquí</span></div>
-      <div class="gal-item"><i class="ti ti-camera"></i><span>Tu foto aquí</span></div>
-      <div class="gal-item"><i class="ti ti-camera"></i><span>Tu foto aquí</span></div>
-      <div class="gal-item"><i class="ti ti-camera"></i><span>Tu foto aquí</span></div>
+      <div class="gal-item"><img src="1d9fd950-51dc-47e5-b66b-3ec4f3cb9c14.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="2bfce5ac-fe91-42c5-a417-88651de9d697.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="3cf95101-f52c-4620-9f15-9de1d6b6673c.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="41e0c019-2c69-46f9-9d52-0cf78e2fb073.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="4fadc438-611f-4393-bfe7-9701ebc80c7c.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="62e5cc3f-6a53-4175-8294-368a0aed2873.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="6c101ce1-3941-4dbe-9de5-ac6355d4ec21.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="71b1661b-6393-46da-b33f-cda941092a2f.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="7d5c45e7-4800-48d9-87dc-0d85918032f6.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="c4a64329-15a6-40ee-9970-a6a148fcb47b.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="c75a43d5-9993-461a-aee0-d71a8c632909.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="db8e5bfb-5641-4ece-bd4f-78b2e94b46d3.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="eb251416-222b-4ca6-a0e8-7478b0ddaaa2.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
+      <div class="gal-item"><img src="f319d248-afa1-4cab-92ca-cd6aeea8a264.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
     </div>
     <div class="gal-note">
       <i class="ti ti-brand-instagram" style="color:var(--gold);vertical-align:-2px;margin-right:6px;"></i>
@@ -565,6 +577,10 @@ footer{padding:36px 24px;text-align:center;border-top:0.5px solid var(--gold-bor
           <p>Toca para subir una imagen<br><span style="font-size:11px;color:#333028;">JPG, PNG, PDF · Máx 10 MB</span></p>
           <div class="up-name" id="upName"></div>
         </div>
+        <div class="up-warning" id="upWarning" style="display:none;font-size:12px;color:var(--muted);background:var(--gold-dim);border:0.5px solid var(--gold-border);border-radius:var(--radius);padding:10px 12px;margin-top:10px;line-height:1.6;">
+          <i class="ti ti-info-circle" style="color:var(--gold);vertical-align:-2px;margin-right:4px;"></i>
+          Ojo: al abrir WhatsApp tu imagen se descarga a tu teléfono/computadora, pero <b>no se adjunta sola al chat</b> — WhatsApp no lo permite desde aquí. Adjúntala tú desde ese chat en cuanto se abra, junto con el mensaje que ya viene listo.
+        </div>
         <input type="file" id="fileIn" accept="image/*,.pdf,.ai,.eps" style="display:none" onchange="fileChosen(this)">
         <label class="field-label">¿No tienes archivo? Describe tu diseño</label>
         <textarea class="field-input" id="designDesc" rows="3" placeholder="Ej. Logo de mi empresa con nombre en letras cursivas..."></textarea>
@@ -699,9 +715,11 @@ function setCount(n, el){
 function fileChosen(inp){
   if(inp.files && inp.files[0]){
     formData.archivo = inp.files[0].name;
+    formData.archivoFile = inp.files[0];
     document.getElementById('upName').textContent = '✓ '+inp.files[0].name;
     document.getElementById('uploadBox').style.borderColor='var(--gold)';
     document.getElementById('uploadBox').style.background='var(--gold-dim)';
+    document.getElementById('upWarning').style.display='block';
     document.getElementById('n6').disabled = false;
   }
 }
@@ -744,9 +762,25 @@ function enviar(){
   msg += '▸ Dimensiones: '+dims+'%0A';
   msg += '▸ Colores: '+(formData.colores.join(', ')||'—')+'%0A';
   if(formData.diseño) msg += '▸ Diseño: '+encodeURIComponent(formData.diseño)+'%0A';
-  if(formData.archivo) msg += '▸ Archivo: '+encodeURIComponent(formData.archivo)+'%0A';
+  if(formData.archivo) msg += '▸ Archivo: '+encodeURIComponent(formData.archivo)+' (te lo adjunto aquí mismo)'+'%0A';
   if(nombre) msg += '%0ANombre: '+encodeURIComponent(nombre);
   if(tel) msg += '%0ATeléfono: '+encodeURIComponent(tel);
+
+  // WhatsApp no permite adjuntar archivos desde un link de chat (wa.me), solo texto.
+  // Como ayuda, si el cliente subió una imagen aquí, se la bajamos a su dispositivo
+  // en este momento para que la tenga a la mano y solo tenga que adjuntarla en el
+  // chat de WhatsApp que se va a abrir.
+  if(formData.archivoFile){
+    const url = URL.createObjectURL(formData.archivoFile);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = formData.archivoFile.name;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(()=>URL.revokeObjectURL(url), 5000);
+  }
+
   window.open('https://wa.me/524447293887?text='+msg,'_blank');
 }
 </script>
