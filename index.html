@@ -108,22 +108,52 @@ nav{
 .svc-desc{font-size:12px;color:var(--muted);line-height:1.6;}
 
 /* ── GALERÍA ── */
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
-.gal-item{
-  background:var(--black-card);border:0.5px solid var(--gold-border);
-  border-radius:var(--radius);aspect-ratio:1;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:8px;color:var(--muted);font-size:11px;letter-spacing:.5px;text-transform:uppercase;
+.gal-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.gal-filter{
+  background:var(--black-card);border:0.5px solid var(--gold-border);color:var(--muted);
+  padding:8px 14px;border-radius:20px;font-size:12px;letter-spacing:.3px;
+  font-family:var(--font-body);cursor:pointer;transition:.2s;
 }
-.gal-item i{font-size:28px;color:var(--muted2);}
-.gal-item{padding:0;overflow:hidden;}
-.gal-item img{width:100%;height:100%;object-fit:cover;display:block;}
+.gal-filter:hover{color:var(--text);border-color:var(--gold);}
+.gal-filter.active{background:var(--gold);color:var(--black);border-color:var(--gold);font-weight:500;}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:dense;gap:10px;margin-bottom:16px;}
+.gal-item{
+  position:relative;background:var(--black-card);border:0.5px solid var(--gold-border);
+  border-radius:var(--radius);aspect-ratio:1;overflow:hidden;cursor:zoom-in;padding:0;
+}
+.gal-item.featured{grid-column:span 2;grid-row:span 2;}
+.gal-item.gal-hidden{display:none;}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
+.gal-item:hover img{transform:scale(1.06);}
+.gal-overlay{
+  position:absolute;left:0;right:0;bottom:0;padding:14px 12px 10px;
+  background:linear-gradient(to top, rgba(8,8,8,.92), rgba(8,8,8,0));
+  color:var(--text);font-size:12px;letter-spacing:.2px;line-height:1.4;
+  opacity:0;transform:translateY(4px);transition:opacity .25s, transform .25s;
+}
+.gal-item:hover .gal-overlay,.gal-item:focus-visible .gal-overlay{opacity:1;transform:translateY(0);}
+@media(max-width:380px){.gallery-grid{grid-template-columns:repeat(2,1fr);}.gal-item.featured{grid-column:span 2;grid-row:span 1;}}
 .gal-note{
   background:var(--black-card);border:0.5px solid var(--gold-border);
   border-radius:var(--radius);padding:14px 16px;
   font-size:13px;color:var(--muted);text-align:center;
 }
 .gal-note a{color:var(--gold);}
+
+/* ── LIGHTBOX ── */
+.lightbox{
+  display:none;position:fixed;inset:0;background:rgba(8,8,8,.95);z-index:300;
+  align-items:center;justify-content:center;padding:28px;cursor:zoom-out;
+}
+.lightbox.open{display:flex;}
+.lightbox-inner{max-width:100%;max-height:100%;text-align:center;}
+.lightbox img{max-width:100%;max-height:80vh;border-radius:8px;border:0.5px solid var(--gold-border);display:block;margin:0 auto;}
+.lightbox-cap{color:var(--text);font-size:13px;margin-top:14px;letter-spacing:.2px;}
+.lightbox-close{
+  position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;
+  background:var(--black-card);border:0.5px solid var(--gold-border);color:var(--text);
+  display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;
+}
 
 /* ── PROCESO ── */
 .steps{display:flex;flex-direction:column;gap:0;}
@@ -359,39 +389,131 @@ footer{padding:36px 24px;text-align:center;border-top:0.5px solid var(--gold-bor
 </section>
 
 <!-- GALERÍA -->
-<section class="section">
+<section class="section" id="galeria">
   <div class="section-inner">
     <div class="sec-tag">Galería</div>
     <div class="sec-title">Trabajos realizados</div>
     <div class="sec-sub">Algunos de nuestros trabajos. Ve más en nuestro Instagram.</div>
-    <div class="gallery-grid">
-      <div class="gal-item"><img src="1d9fd950-51dc-47e5-b66b-3ec4f3cb9c14.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="2bfce5ac-fe91-42c5-a417-88651de9d697.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="3cf95101-f52c-4620-9f15-9de1d6b6673c.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="41e0c019-2c69-46f9-9d52-0cf78e2fb073.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="4fadc438-611f-4393-bfe7-9701ebc80c7c.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="62e5cc3f-6a53-4175-8294-368a0aed2873.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="6c101ce1-3941-4dbe-9de5-ac6355d4ec21.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="71b1661b-6393-46da-b33f-cda941092a2f.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="7d5c45e7-4800-48d9-87dc-0d85918032f6.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="c4a64329-15a6-40ee-9970-a6a148fcb47b.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="c75a43d5-9993-461a-aee0-d71a8c632909.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="db8e5bfb-5641-4ece-bd4f-78b2e94b46d3.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="eb251416-222b-4ca6-a0e8-7478b0ddaaa2.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="f319d248-afa1-4cab-92ca-cd6aeea8a264.jpg" alt="Trabajo de bordado Bordados 444" loading="lazy"></div>
-      <div class="gal-item"><img src="continental-camisa.jpg" alt="Bordado Continental en camisa" loading="lazy"></div>
-      <div class="gal-item"><img src="retrato-bordado.jpg" alt="Bordado artístico de retrato" loading="lazy"></div>
-      <div class="gal-item"><img src="seniors-sudadera.jpg" alt="Sudadera bordada Seniors" loading="lazy"></div>
-      <div class="gal-item"><img src="beko-camisa.jpg" alt="Camisa bordada Beko" loading="lazy"></div>
-      <div class="gal-item"><img src="tajima-produccion.jpg" alt="Producción de gorras en máquina Tajima" loading="lazy"></div>
-      <div class="gal-item"><img src="gorra-verde-logo.jpg" alt="Gorra bordada verde con logo" loading="lazy"></div>
-      <div class="gal-item"><img src="canima-playera.jpg" alt="Playera bordada Canima" loading="lazy"></div>
-      <div class="gal-item"><img src="bosch-polo.jpg" alt="Polo bordado Bosch" loading="lazy"></div>
-      <div class="gal-item"><img src="triaco-chalecos.jpg" alt="Chalecos bordados Triaco" loading="lazy"></div>
-      <div class="gal-item"><img src="anafrank-tela.jpg" alt="Tela de uniforme bordada Ana Frank" loading="lazy"></div>
-      <div class="gal-item"><img src="tierraganadera-gorra.jpg" alt="Gorra bordada Tierra Ganadera" loading="lazy"></div>
-      <div class="gal-item"><img src="cuchilloysabor-polo.jpg" alt="Polo bordado Cuchillo y Sabor" loading="lazy"></div>
-      <div class="gal-item"><img src="cuchilloysabor-playera.jpg" alt="Playera bordada Cuchillo y Sabor" loading="lazy"></div>
+    <div class="gal-filters">
+      <button class="gal-filter active" onclick="filterGallery('todas',this)">Todas</button>
+      <button class="gal-filter" onclick="filterGallery('gorras',this)">Gorras</button>
+      <button class="gal-filter" onclick="filterGallery('uniformes',this)">Uniformes / Empresas</button>
+      <button class="gal-filter" onclick="filterGallery('playeras',this)">Sudaderas y Playeras</button>
+      <button class="gal-filter" onclick="filterGallery('especiales',this)">Trabajos Especiales / Parches</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gal-item featured" data-cat="especiales" onclick="openLightbox(this)">
+        <img src="2bfce5ac-fe91-42c5-a417-88651de9d697.jpg" alt="Parches bordados a máquina" loading="lazy">
+        <div class="gal-overlay">Parches bordados a máquina</div>
+      </div>
+      <div class="gal-item featured" data-cat="gorras" onclick="openLightbox(this)">
+        <img src="tajima-produccion.jpg" alt="Producción de gorras en Tajima" loading="lazy">
+        <div class="gal-overlay">Producción de gorras en Tajima</div>
+      </div>
+      <div class="gal-item" data-cat="playeras" onclick="openLightbox(this)">
+        <img src="1d9fd950-51dc-47e5-b66b-3ec4f3cb9c14.jpg" alt="Sudaderas bordadas a juego" loading="lazy">
+        <div class="gal-overlay">Sudaderas bordadas a juego</div>
+      </div>
+      <div class="gal-item" data-cat="uniformes" onclick="openLightbox(this)">
+        <img src="3cf95101-f52c-4620-9f15-9de1d6b6673c.jpg" alt="Playera corporativa Acciona" loading="lazy">
+        <div class="gal-overlay">Playera corporativa Acciona</div>
+      </div>
+      <div class="gal-item" data-cat="especiales" onclick="openLightbox(this)">
+        <img src="41e0c019-2c69-46f9-9d52-0cf78e2fb073.jpg" alt="Bordado detallado Virgen de Guadalupe" loading="lazy">
+        <div class="gal-overlay">Bordado detallado Virgen de Guadalupe</div>
+      </div>
+      <div class="gal-item" data-cat="especiales" onclick="openLightbox(this)">
+        <img src="4fadc438-611f-4393-bfe7-9701ebc80c7c.jpg" alt="Monograma bordado en toallas" loading="lazy">
+        <div class="gal-overlay">Monograma bordado en toallas</div>
+      </div>
+      <div class="gal-item" data-cat="gorras" onclick="openLightbox(this)">
+        <img src="62e5cc3f-6a53-4175-8294-368a0aed2873.jpg" alt="Gorras personalizadas ART y Zalem" loading="lazy">
+        <div class="gal-overlay">Gorras personalizadas ART y Zalem</div>
+      </div>
+      <div class="gal-item" data-cat="uniformes" onclick="openLightbox(this)">
+        <img src="6c101ce1-3941-4dbe-9de5-ac6355d4ec21.jpg" alt="Mochila corporativa Jumamex" loading="lazy">
+        <div class="gal-overlay">Mochila corporativa Jumamex</div>
+      </div>
+      <div class="gal-item" data-cat="playeras" onclick="openLightbox(this)">
+        <img src="71b1661b-6393-46da-b33f-cda941092a2f.jpg" alt="Chamarra bordada Despecho" loading="lazy">
+        <div class="gal-overlay">Chamarra bordada Despecho</div>
+      </div>
+      <div class="gal-item" data-cat="gorras" onclick="openLightbox(this)">
+        <img src="7d5c45e7-4800-48d9-87dc-0d85918032f6.jpg" alt="Gorras corporativas JIB 90" loading="lazy">
+        <div class="gal-overlay">Gorras corporativas JIB 90</div>
+      </div>
+      <div class="gal-item" data-cat="gorras" onclick="openLightbox(this)">
+        <img src="c4a64329-15a6-40ee-9970-a6a148fcb47b.jpg" alt="Gorra camuflada en producción" loading="lazy">
+        <div class="gal-overlay">Gorra camuflada en producción</div>
+      </div>
+      <div class="gal-item" data-cat="uniformes" onclick="openLightbox(this)">
+        <img src="c75a43d5-9993-461a-aee0-d71a8c632909.jpg" alt="Mochila corporativa NYX" loading="lazy">
+        <div class="gal-overlay">Mochila corporativa NYX</div>
+      </div>
+      <div class="gal-item" data-cat="uniformes" onclick="openLightbox(this)">
+        <img src="db8e5bfb-5641-4ece-bd4f-78b2e94b46d3.jpg" alt="Bordado Audi Q5 en producción" loading="lazy">
+        <div class="gal-overlay">Bordado Audi Q5 en producción</div>
+      </div>
+      <div class="gal-item" data-cat="uniformes" onclick="openLightbox(this)">
+        <img src="eb251416-222b-4ca6-a0e8-7478b0ddaaa2.jpg" alt="Chamarra Glace Language Center" loading="lazy">
+        <div class="gal-overlay">Chamarra Glace Language Center</div>
+      </div>
+      <div class="gal-item" data-cat="especiales" onclick="openLightbox(this)">
+        <img src="f319d248-afa1-4cab-92ca-cd6aeea8a264.jpg" alt="Bordado religioso con rosas" loading="lazy">
+        <div class="gal-overlay">Bordado religioso con rosas</div>
+      </div>
+      <div class="gal-item" data-cat="uniformes" onclick="openLightbox(this)">
+        <img src="continental-camisa.jpg" alt="Camisa corporativa Continental" loading="lazy">
+        <div class="gal-overlay">Camisa corporativa Continental</div>
+      </div>
+      <div class="gal-item" data-cat="especiales" onclick="openLightbox(this)">
+        <img src="retrato-bordado.jpg" alt="Retrato bordado a detalle" loading="lazy">
+        <div class="gal-overlay">Retrato bordado a detalle</div>
+      </div>
+      <div class="gal-item" data-cat="playeras" onclick="openLightbox(this)">
+        <img src="seniors-sudadera.jpg" alt="Sudadera Seniors" loading="lazy">
+        <div class="gal-overlay">Sudadera Seniors</div>
+      </div>
+      <div class="gal-item" data-cat="uniformes" onclick="openLightbox(this)">
+        <img src="beko-camisa.jpg" alt="Camisa corporativa Beko" loading="lazy">
+        <div class="gal-overlay">Camisa corporativa Beko</div>
+      </div>
+      <div class="gal-item" data-cat="gorras" onclick="openLightbox(this)">
+        <img src="tajima-produccion-2.jpg" alt="Gorras recién bordadas" loading="lazy">
+        <div class="gal-overlay">Gorras recién bordadas</div>
+      </div>
+      <div class="gal-item" data-cat="gorras" onclick="openLightbox(this)">
+        <img src="gorra-verde-logo.jpg" alt="Gorra verde con logo bordado" loading="lazy">
+        <div class="gal-overlay">Gorra verde con logo bordado</div>
+      </div>
+      <div class="gal-item" data-cat="playeras" onclick="openLightbox(this)">
+        <img src="canima-playera.jpg" alt="Playera Canima" loading="lazy">
+        <div class="gal-overlay">Playera Canima</div>
+      </div>
+      <div class="gal-item" data-cat="uniformes" onclick="openLightbox(this)">
+        <img src="bosch-polo.jpg" alt="Polo corporativo Bosch" loading="lazy">
+        <div class="gal-overlay">Polo corporativo Bosch</div>
+      </div>
+      <div class="gal-item" data-cat="uniformes" onclick="openLightbox(this)">
+        <img src="triaco-chalecos.jpg" alt="Chalecos de seguridad Triaco" loading="lazy">
+        <div class="gal-overlay">Chalecos de seguridad Triaco</div>
+      </div>
+      <div class="gal-item" data-cat="uniformes" onclick="openLightbox(this)">
+        <img src="anafrank-tela.jpg" alt="Uniforme escolar Ana Frank" loading="lazy">
+        <div class="gal-overlay">Uniforme escolar Ana Frank</div>
+      </div>
+      <div class="gal-item" data-cat="gorras" onclick="openLightbox(this)">
+        <img src="tierraganadera-gorra.jpg" alt="Gorra Tierra Ganadera" loading="lazy">
+        <div class="gal-overlay">Gorra Tierra Ganadera</div>
+      </div>
+      <div class="gal-item" data-cat="uniformes" onclick="openLightbox(this)">
+        <img src="cuchilloysabor-polo.jpg" alt="Polo Cuchillo y Sabor" loading="lazy">
+        <div class="gal-overlay">Polo Cuchillo y Sabor</div>
+      </div>
+      <div class="gal-item" data-cat="playeras" onclick="openLightbox(this)">
+        <img src="cuchilloysabor-playera.jpg" alt="Playera Cuchillo y Sabor" loading="lazy">
+        <div class="gal-overlay">Playera Cuchillo y Sabor</div>
+      </div>
     </div>
     <div class="gal-note">
       <i class="ti ti-brand-instagram" style="color:var(--gold);vertical-align:-2px;margin-right:6px;"></i>
@@ -399,6 +521,15 @@ footer{padding:36px 24px;text-align:center;border-top:0.5px solid var(--gold-bor
     </div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-close" onclick="closeLightbox(event)"><i class="ti ti-x"></i></div>
+  <div class="lightbox-inner">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-cap" id="lightboxCap"></div>
+  </div>
+</div>
+
 
 <!-- PROCESO -->
 <section class="section" id="proceso">
@@ -796,6 +927,34 @@ function enviar(){
 
   window.open('https://wa.me/524447293887?text='+msg,'_blank');
 }
+
+/* ── GALERÍA: filtros y lightbox ── */
+function filterGallery(cat, btn){
+  document.querySelectorAll('.gal-filter').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#galleryGrid .gal-item').forEach(item=>{
+    const show = cat==='todas' || item.getAttribute('data-cat')===cat;
+    item.classList.toggle('gal-hidden', !show);
+  });
+}
+
+function openLightbox(el){
+  const img = el.querySelector('img');
+  const overlay = el.querySelector('.gal-overlay');
+  document.getElementById('lightboxImg').src = img.src;
+  document.getElementById('lightboxImg').alt = img.alt;
+  document.getElementById('lightboxCap').textContent = overlay ? overlay.textContent : img.alt;
+  document.getElementById('lightbox').classList.add('open');
+}
+
+function closeLightbox(e){
+  if(e) e.stopPropagation();
+  document.getElementById('lightbox').classList.remove('open');
+}
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeLightbox();
+});
 </script>
 </body>
 </html>
